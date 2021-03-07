@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <title>Ajouter un film</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+          integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.css" integrity="sha512-BB0bszal4NXOgRP9MYCyVA0NNK2k1Rhr+8klY17rj4OhwTmqdPUQibKUDeHesYtXl7Ma2+tqC6c7FzYuHhw94g==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<!--Header-->
+<header id="header">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="navbar-brand" href="#">Netflix watchlist</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!--Site-->
+<div id="site-main">
+    <div class="container">
+        <div class="row box-nav d-flex justify-content-between ">
+            <a href="/" class="shadow-sm p-3 mb-5 bg-white rounded text-dark">
+                <span><i class="fas fa-backward"></i> Liste des films</span>
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h2>Ajout d'un film</h2>
+                <p>Utiliser le formulaire ci-dessous pour ajouter un film à la liste.</p>
+            </div>
+        </div>
+
+        <!--Form-->
+        <form action="/" method="POST" id="update_movie">
+            <div class="new_movie">
+                <div class="form-group">
+                    <label for="title">Titre</label>
+                    <input type="hidden" name="id" value="">
+                    <input type="text" name="title" id="title" class="form-control" value="" placeholder="Avengers : Endgame">
+                </div>
+                <div class="form-group">
+                    <label for="year">Année</label>
+                    <input class="date-input form-control" type="text" name="year" id="year" value="" placeholder="2020">
+                </div>
+                <div class="form-group clock-input">
+                    <label for="movieLength">Durée</label>
+                    <input type="text" class="form-control" id="movieLength" name="movieLength" value="01:00">
+                    <span class="input-group-addon">
+		                <span class="glyphicon glyphicon-time"></span>
+	                </span>
+                </div>
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <select id="genre" name="genre" class="form-control">
+                        <option>Action</option>
+                        <option>Comédie</option>
+                        <option>Drame</option>
+                        <option>Horreur</option>
+                        <option>Science-fiction</option>
+                        <option>Thriller</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="synopsis">Synopsis</label>
+                    <textarea class="form-control" rows="5" id="synopsis" name="synopsis"></textarea>
+                </div>
+            </div>
+            <form class="form-group">
+                <button id="btn" type="submit" class="btn btn-dark btn-block update">Sauvegarder</button>
+            </form>
+        </form>
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/jquery-clockpicker.min.js"
+        integrity="sha512-x0qixPCOQbS3xAQw8BL9qjhAh185N7JSw39hzE/ff71BXg7P1fkynTqcLYMlNmwRDtgdoYgURIvos+NJ6g0rNg==" crossorigin="anonymous"></script>
+<script src="js/crud.js"></script>
+<script type="text/javascript">
+    $('.date-input').datepicker({
+        minViewMode: 2,
+        format: 'yyyy'
+    });
+
+    $('.clock-input').clockpicker({
+        placement: 'top',
+        align: 'left',
+        autoclose: true,
+        donetext: 'OK'
+    });
+</script>
+</body>
+</html>
